@@ -1,0 +1,245 @@
+/* Hide icons by default */
+.custom-card .action-icons {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Show icons + change background on hover */
+.custom-card:hover .action-icons {
+  opacity: 1;
+}
+
+.custom-card .card-hover-body {
+  background-color: white;
+  transition: background-color 0.3s ease;
+}
+
+.custom-card:hover .card-hover-body {
+  background-color: #d1e7dd; /* Bootstrap's light-success shade */
+}
+
+/* Fix unwanted scrollbars */
+body, html {
+  overflow-x: hidden;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Placeholder text inside header search */
+.header-placeholder::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Custom dropdown menu for user image */
+.dropdown-menu-custom {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  min-width: 150px;
+  animation: dropdownFade 0.2s ease-in-out;
+}
+
+.user-dropdown {
+  min-width: 170px;
+  z-index: 1050;
+  animation: dropdownFade 0.2s ease-in-out;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loader */
+.full-page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-box {
+  background-color: #fff5eb;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Font */
+.la-mango-heading {
+  font-family: 'La Mango', sans-serif;
+}
+
+body {
+  font-family: 'Nunito Sans';
+}
+
+/* Badges */
+.badge {
+  font-size: 0.65rem;
+  padding: 4px 6px;
+}
+
+/* ======================
+   Order Status Tracker
+   ====================== */
+
+.custom-horizontal-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.custom-step {
+  text-align: center;
+  flex: 1;
+  position: relative;
+  min-width: 60px;
+}
+
+.custom-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-size: 14px;
+  color: white;
+  z-index: 1;
+}
+
+.custom-circle.completed {
+  background-color: #000;
+  color: #fff;
+}
+
+.custom-circle.current {
+  background-color: #ffc107;
+}
+
+.custom-circle.upcoming {
+  background-color: #ccc;
+  color: #fff;
+}
+
+.custom-line {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 2px;
+  width: calc(100% - 60px); /* Subtract full circle width (30px * 2) */
+  z-index: 0;
+}
+
+.line-completed {
+  background-color: #000;
+}
+
+.line-pending {
+  background-color: #ccc;
+}
+
+.custom-step:not(:last-child) .custom-line {
+  left: calc(45% + 40px);
+}
+
+/* Status label */
+.custom-label {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #444;
+}
+
+/* Responsive layout */
+@media (max-width: 576px) {
+  .custom-horizontal-status {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .custom-step {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .custom-line {
+    display: none;
+  }
+
+  .custom-label {
+    text-align: left;
+    margin-left: 40px;
+  }
+}
+.center-loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 9999;
+  backdrop-filter: blur(3px);
+}
+
+.center-loading-bar {
+  height: 8px;
+  width: 200px;
+  background-color: #000;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.center-loading-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(to right, #000, #333);
+  animation: moveBar 1s linear infinite;
+}
+
+@keyframes moveBar {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
+}
