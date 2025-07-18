@@ -8,7 +8,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: "https://zoola.onrender.com", //
+  origin: "https://zulaas-iizw.onrender.com",
   credentials: true
 }));
 
